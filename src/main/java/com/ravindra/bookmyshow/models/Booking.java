@@ -2,10 +2,7 @@ package com.ravindra.bookmyshow.models;
 
 
 import com.ravindra.bookmyshow.models.enums.BookingStatus;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,15 +13,22 @@ import java.util.List;
 @Entity
 public class Booking extends BaseModal{
     private String bookingNumber;
+
     @ManyToOne
     private User user;
+
     @ManyToOne
     private Show show;
+
     @ManyToMany
     private List<ShowSeat> showSeats;
+
     private double amount;
+
     @OneToMany
     private List<Payment> payments;
+
+    @Enumerated(EnumType.ORDINAL)
     private BookingStatus bookingStatus;
 }
 

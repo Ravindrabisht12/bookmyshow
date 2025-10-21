@@ -1,6 +1,7 @@
 package com.ravindra.bookmyshow.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,5 +16,6 @@ public class User extends BaseModal{
     private String email;
     private String phoneNumber;
     private String password;
+    @OneToMany
     private List<Booking> bookings;
 }

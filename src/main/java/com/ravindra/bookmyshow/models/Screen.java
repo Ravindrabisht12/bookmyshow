@@ -1,7 +1,7 @@
 package com.ravindra.bookmyshow.models;
 
 import com.ravindra.bookmyshow.models.enums.Feature;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +12,25 @@ import java.util.List;
 @Entity
 public class Screen extends BaseModal{
     private String name;
+    @OneToMany(mappedBy = "screen")
     private List<Seat> seats;
+
+    @Enumerated(EnumType.ORDINAL)
+    @ElementCollection
     private List<Feature> features;
 }
+
+
+/**
+ *
+ *
+ * Screen has a One-to-Many relationship with Seat.
+ *
+ *   1              M
+ * Screen ------- Seat 1:M
+ *   1              1
+ *
+ *  1              M
+ * Screen ------- Feature 1:M
+ *  M              1
+ */
