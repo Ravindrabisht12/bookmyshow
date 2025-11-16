@@ -5,8 +5,6 @@ import com.ravindra.bookmyshow.models.enums.SeatType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,12 +12,10 @@ import lombok.Setter;
 @Setter
 @Entity
 public class Seat extends BaseModal{
-    private String seatNumber;
+    private int rowNum;
+    private int colNum;
+    private String number;
+
     @Enumerated(EnumType.ORDINAL)
     private SeatType seatType;
-    private int rowNumber;
-    private int colNumber;
-
-    @ManyToOne
-    private Screen screen;
 }

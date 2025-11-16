@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 public class Screen extends BaseModal{
     private String name;
-    @OneToMany(mappedBy = "screen")
+    @OneToMany
     private List<Seat> seats;
 
     @Enumerated(EnumType.ORDINAL)
